@@ -1,0 +1,17 @@
+[DEFAULT]
+backend = systemd
+# The office address is dynamic, so it is deliberately not a permanent exemption.
+ignoreip = 127.0.0.1/8 ::1
+bantime = 1h
+findtime = 10m
+maxretry = 5
+bantime.increment = true
+bantime.factor = 2
+bantime.maxtime = 4w
+
+[sshd]
+enabled = true
+port = ssh
+filter = sshd
+journalmatch = _SYSTEMD_UNIT=ssh.service + _COMM=sshd
+banaction = ufw

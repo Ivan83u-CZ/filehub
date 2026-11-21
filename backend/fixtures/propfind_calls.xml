@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d:multistatus xmlns:d="DAV:">
+<d:response><d:href>/CRM/123/5_calls/</d:href><d:propstat><d:prop><d:resourcetype><d:collection/></d:resourcetype></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response>
+<d:response><d:href>/CRM/123/5_calls/summary.json</d:href><d:propstat><d:prop><d:getcontentlength>610</d:getcontentlength><d:getcontenttype>application/json</d:getcontenttype><d:getlastmodified>Thu, 05 Nov 2026 00:00:00 GMT</d:getlastmodified></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response>
+<d:response><d:href>/CRM/123/5_calls/20261104_111aaa.mp3</d:href><d:propstat><d:prop><d:getcontentlength>123456</d:getcontentlength><d:getcontenttype>audio/mpeg</d:getcontenttype><d:getlastmodified>Wed, 04 Nov 2026 07:20:00 GMT</d:getlastmodified></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response>
+<d:response><d:href>/CRM/123/5_calls/20261105_222bbb.ogg</d:href><d:propstat><d:prop><d:getcontentlength>78555</d:getcontentlength><d:getcontenttype>audio/ogg</d:getcontenttype><d:getlastmodified>Thu, 05 Nov 2026 08:20:00 GMT</d:getlastmodified></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response>
+<d:response><d:href>/CRM/123/5_calls/orphan.wav</d:href><d:propstat><d:prop><d:getcontentlength>9000</d:getcontentlength><d:getcontenttype>audio/wav</d:getcontenttype><d:getlastmodified>Tue, 03 Nov 2026 07:20:00 GMT</d:getlastmodified></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response>
+<d:response><d:href>/CRM/123/5_calls/notes.txt</d:href><d:propstat><d:prop><d:getcontentlength>12</d:getcontentlength><d:getcontenttype>text/plain</d:getcontenttype><d:getlastmodified>Tue, 03 Nov 2026 07:20:00 GMT</d:getlastmodified></d:prop><d:status>HTTP/1.1 200 OK</d:status></d:propstat></d:response>
+</d:multistatus>

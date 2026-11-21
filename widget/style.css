@@ -1,0 +1,133 @@
+.czfh-filehub-container { font-family: Arial, sans-serif; }
+.czfh-header { margin-bottom: 10px; display:flex; align-items:center; justify-content: space-between; gap:10px; flex-wrap: wrap; }
+.czfh-title { font-weight: 600; color:#333; }
+.czfh-tabs { display:flex; gap:8px; flex-wrap: wrap; }
+.czfh-tab { padding:6px 10px; border:1px solid #ddd; border-radius:16px; cursor:pointer; color:#333; background:#fafafa; }
+.czfh-tab.active { background:#4c8bf7; color:#fff; border-color:#4c8bf7; }
+
+.czfh-btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; background:#ff7a00; color:#fff; border:0; border-radius:8px; cursor:pointer; font-weight:600; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+.czfh-btn:hover { background:#e56d00; }
+.czfh-btn:active { transform: translateY(1px); }
+
+.czfh-drop { border:2px dashed #d8dbe1; padding:14px; text-align:center; color:#666; border-radius:8px; margin:10px 0; background:#fafbff; }
+.czfh-progress { width:100%; height:6px; background:#eee; border-radius: 4px; overflow:hidden; margin: 8px 0; display:none; }
+.czfh-progress .fill { width:0%; height:100%; background:#4c8bf7; transition:width .2s; }
+
+.czfh-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); min-width:0; gap:12px; }
+.czfh-card { border:1px solid #eceff4; border-radius:10px; padding:10px; background:#fff; box-shadow: 0 1px 2px rgba(0,0,0,.03); min-width:0; overflow:hidden; }
+.czfh-thumb { width:100%; height:160px; object-fit:contain; box-sizing:border-box; border:1px solid #f0f0f0; border-radius:6px; background:#f7f7f7; display:block; }
+.czfh-thumb--pdf { display:flex; align-items:center; justify-content:center; font-weight:700; color:#b11b1b; background:#fff3f3; }
+
+.czfh-meta { font-size:12px; color:#555; margin-top:8px; line-height:1.3; word-break: break-word; }
+.czfh-actions { display:flex; flex-wrap: wrap; gap:8px 12px; margin-top:8px; }
+.czfh-actions a { color:#2b6cb0; text-decoration: none; font-weight:600; }
+.czfh-actions a:hover { text-decoration: underline; }
+
+/* Full-window, centered accessible viewer: no initial manual zoom needed. */
+.czfh-modal { position:fixed; inset:0; background:rgba(10,18,29,.76); display:none; align-items:center; justify-content:center; z-index:99999; padding:10px; box-sizing:border-box; }
+.czfh-modal__inner { width:min(1160px,100%); height:min(880px,calc(100dvh - 20px)); min-height:0; background:#fff; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 16px 64px rgba(0,0,0,.3); }
+.czfh-modal__bar { flex:0 0 auto; padding:9px 12px; background:#f5f7fb; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.czfh-modal__title { font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#243142; }
+.czfh-modal__close { cursor:pointer; border:0; background:transparent; color:#333; font-size:20px; font-weight:700; width:36px; height:36px; border-radius:6px; }
+.czfh-modal__close:hover,.czfh-modal__close:focus-visible { background:#e8ecf3; }
+.czfh-modal__body { flex:1; min-width:0; min-height:0; display:flex; flex-direction:column; overflow:hidden; }
+.czfh-modal__iframe { width:100%; height:100%; border:0; }
+
+/* Белый фон для открытой карточки виджета (активное/hover не трогаем) */
+.card-widgets__widget.czfh-white .card-widgets__widget__head {
+  background: #fff !important;
+  border-color: #e5e7ea !important;
+  box-shadow: none !important;
+}
+.card-widgets__widget.czfh-white .card-widgets__widget__body,
+.card-widgets__widget.czfh-white .card-widgets__widget__inner,
+.card-widgets__widget.czfh-white .widgets__widget__content {
+  background: #fff !important;
+  border-color: #e5e7ea !important;
+}
+
+/* Белая шапка строки в боковой колонке */
+.widgets__widget.czfh-white .widgets__top-inner,
+.widgets__widget.czfh-white .widgets__widget__top {
+  background: #fff !important;
+  background-image: none !important;
+  border-color: #e5e7ea !important;
+  box-shadow: none !important;
+}
+.czfh-muted { color:#6b7280; }
+.czfh-error { color:#b42318; font-weight:600; }
+.czfh-warning { background:#fff7ed; color:#9a3412; border:1px solid #fed7aa; border-radius:8px; padding:10px 12px; margin:10px 0; }
+.czfh-thumb--file { display:flex; align-items:center; justify-content:center; font-weight:700; color:#475467; background:#f8fafc; }
+.czfh-audio { width:100%; margin-top:8px; height:32px; }
+.czfh-section-title { font-size:14px; font-weight:700; color:#111827; margin:14px 0 10px; }
+.czfh-calls-summary { margin-bottom:12px; }
+.czfh-stat-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; }
+.czfh-stat { border:1px solid #eceff4; border-radius:10px; background:#fff; padding:10px 12px; }
+.czfh-stat__label { font-size:12px; color:#667085; margin-bottom:4px; }
+.czfh-stat__value { font-size:13px; color:#111827; font-weight:600; word-break:break-word; }
+.czfh-call-card { border:1px solid #eceff4; border-radius:12px; background:#fff; padding:12px; margin-bottom:12px; }
+.czfh-call-head { margin-bottom:8px; }
+.czfh-call-title { font-size:14px; font-weight:700; color:#111827; }
+.czfh-call-meta { font-size:12px; color:#667085; margin-top:2px; }
+.czfh-call-summary { font-size:13px; line-height:1.45; color:#374151; white-space:pre-wrap; margin:8px 0 10px; }
+
+/* FileHub 2.8.4: viewport-fit image/PDF/audio/video viewer. */
+.czfh-view-stage {flex:1 1 auto; min-height:0; min-width:0; overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; background:#17212e; color:#fff; box-sizing:border-box; touch-action:none;}
+.czfh-view-stage--pan {cursor:grab;}
+.czfh-view-stage--pan:active {cursor:grabbing;}
+.czfh-view-stage--pdf {background:#f3f4f6; touch-action:auto;}
+.czfh-view-tools {flex:0 0 auto; min-height:42px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:6px; padding:7px 10px; background:#f5f7fb;}
+.czfh-view-tool {font-size:13px; cursor:pointer; border:1px solid #d5dbe4; border-radius:6px; padding:7px 10px; background:#fff; color:#243142; text-decoration:none; line-height:1.2;}
+.czfh-view-tool:hover {background:#ebf1fc;}
+.czfh-view-tool--link {display:inline-flex; align-items:center;}
+.czfh-view-percent {font-size:12px; font-variant-numeric:tabular-nums; color:#333; min-width:46px; text-align:center;}
+.czfh-view-hint {font-size:12px;color:#475467;min-width:120px;}
+.czfh-view-image {position:absolute; left:50%; top:50%; max-width:none;max-height:none; object-fit:contain; user-select:none; -webkit-user-drag:none; transform-origin:center center; will-change:transform;}
+.czfh-view-iframe {width:100%;height:100%;min-height:0;border:0;background:#fff;display:block;}
+.czfh-view-audio {max-width:720px;width:min(90%,720px);}
+.czfh-view-speed {margin:10px;border-radius:6px;padding:7px;}
+.czfh-view-video {max-width:100%;max-height:100%;object-fit:contain;}
+.czfh-view-text {background:#fff;color:#111827;width:100%;height:100%;overflow:auto;box-sizing:border-box;white-space:pre-wrap;word-break:break-word;padding:24px;margin:0;touch-action:auto;}
+.czfh-view-fallback {color:#fff;max-width:620px;padding:22px;text-align:center;line-height:1.5;white-space:normal;}
+.czfh-upload-status {font-size:12px;color:#475467;margin:6px 0;overflow-wrap:anywhere;}
+.czfh-is-busy {opacity:.5;pointer-events:none;}
+.czfh-btn:disabled,.czfh-view-tool:disabled {opacity:.55;cursor:not-allowed;}
+@media(max-width:650px){
+ .czfh-modal {padding:0;}
+ .czfh-modal__inner{width:100vw;height:100dvh;border-radius:0;}
+ .czfh-view-tools{justify-content:flex-start;gap:4px;}
+ .czfh-view-tool{padding:7px 8px;}
+ .czfh-view-hint{font-size:11px;}
+}
+
+.czfh-test-label {display:inline-block;margin-top:5px;padding:3px 6px;border-radius:4px;background:#fff3df;color:#8c4900;font-size:10px;font-weight:700;}
+
+/* Stage09 only: synthetic write controls. */
+.czfh-btn--trash{background:#475467;box-shadow:none}.czfh-btn--trash:hover{background:#344054}
+
+/* FH11 synthetic Mail.ru canary controls */
+.czfh-dav-bar{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}.czfh-actions .czfh-view-tool{font:inherit;cursor:pointer}.czfh-actions .czfh-view-tool:disabled{opacity:.45;cursor:not-allowed}
+
+/* v2.8.5: keep previews within narrow amoCRM sidebar and never show broken image icon. */
+.czfh-card .czfh-meta,.czfh-card .czfh-actions{min-width:0;overflow-wrap:anywhere;}
+.czfh-thumb-frame{position:relative;width:100%;height:160px;min-width:0;box-sizing:border-box;overflow:hidden;border-radius:6px;background:#f7f9fc;display:flex;align-items:center;justify-content:center;}
+.czfh-thumb-frame .czfh-thumb{width:100%;height:100%;min-width:0;}
+.czfh-thumb-frame--failed{border:1px solid #d8dee8;flex-direction:column;gap:7px;padding:8px;text-align:center;color:#475467;}
+.czfh-thumb-empty{font-size:12px;line-height:1.35;overflow-wrap:anywhere;}
+.czfh-thumb-retry{border:1px solid #bac8db;border-radius:5px;background:#fff;color:#294461;cursor:pointer;padding:5px 9px;font-size:12px;max-width:100%;}
+.czfh-thumb-retry:hover,.czfh-thumb-retry:focus-visible{background:#eef4ff;}
+.czfh-thumb-loaded-label{position:absolute;bottom:4px;right:4px;background:rgba(22,34,49,.77);color:white;font-size:10px;padding:2px 5px;border-radius:3px;pointer-events:none;}
+
+/* Staging 2.8.6: queue remains visible after ambiguous upload failure. */
+.czfh-queue-items:not(:empty){margin:10px 0;padding:8px 10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;max-height:180px;overflow:auto;font-size:12px;}
+.czfh-queue-row{padding:3px 0;overflow-wrap:anywhere;}
+.czfh-queue-actions{margin:8px 0;display:flex;gap:8px;flex-wrap:wrap;}
+.czfh-queue-actions button{padding:7px 10px;border-radius:7px;border:1px solid #94a3b8;background:#fff;color:#334155;cursor:pointer;font-size:12px;}
+
+/* 2.8.9: safe per-lead server action history */
+.czfh-btn--history{background:#344054;box-shadow:none}.czfh-btn--history:hover{background:#243142}
+.czfh-history-row{border:1px solid #e3e8ef;border-radius:8px;padding:9px 10px;margin:8px 0;background:#fff;overflow-wrap:anywhere}
+.czfh-history-title{font-size:13px;font-weight:700;color:#243142}
+.czfh-history-meta{font-size:11px;color:#667085;margin-top:3px}
+.czfh-history-file{font-size:12px;color:#344054;margin-top:5px;overflow-wrap:anywhere}
+.czfh-actions .czfh-destructive-action{color:#b42318;text-decoration:underline}

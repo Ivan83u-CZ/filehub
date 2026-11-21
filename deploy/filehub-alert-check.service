@@ -1,0 +1,19 @@
+[Unit]
+Description=FileHub log alert scan (5xx, slow, FPM, media_denied)
+After=docker.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=-/etc/filehub-alerts.env
+ExecStart=/usr/bin/flock -w 10 /var/lib/filehub-alerts/lock /usr/bin/python3 /usr/local/lib/filehub/filehub_alert_check.py --window 10m
+Nice=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+RestrictSUIDSGID=true
+LockPersonality=true
+StandardOutput=journal
+StandardError=journal
+

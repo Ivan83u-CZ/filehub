@@ -1,0 +1,8 @@
+.env
+pki
+state
+backups
+*.env
+*.zip
+*.bak
+__pycache__

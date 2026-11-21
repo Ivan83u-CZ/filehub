@@ -1,0 +1,30 @@
+{
+  "updated_at": "2026-11-05T09:00:00Z",
+  "calls_count": 2,
+  "first_call_at": "2026-11-04T07:00:00Z",
+  "last_call_at": "2026-11-05T08:00:00Z",
+  "previous_lead_ids": [
+    200
+  ],
+  "merged_from_lead_ids": [
+    201
+  ],
+  "calls": [
+    {
+      "uniq": "111aaa",
+      "call_at": "2026-11-04T07:00:00Z",
+      "operator_name": "Test Operator A",
+      "amo_stage_id": 123,
+      "amo_stage_name": "Test stage 1",
+      "summary": "Synthetic test call A"
+    },
+    {
+      "uniq": "222bbb",
+      "call_at": "2026-11-05T08:00:00Z",
+      "operator_name": "Test Operator B",
+      "amo_stage_id": 456,
+      "amo_stage_name": "Test stage 2",
+      "summary": "Synthetic test call B"
+    }
+  ]
+}

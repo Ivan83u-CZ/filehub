@@ -1,0 +1,78 @@
+name: filehub-unified-rc02
+services:
+  gateway:
+    image: nginx:stable-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:18444:8443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./pki:/etc/filehub-pki:ro
+      - ./app:/var/www/html:ro
+    depends_on:
+      - php
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx:size=8m,mode=1777
+      - /var/run:size=2m,mode=1777
+      - /tmp:size=8m,mode=1777
+    mem_limit: 96m
+    cpus: "0.40"
+    security_opt: ["no-new-privileges=true"]
+    logging:
+      driver: json-file
+      options: {max-size: "2m", max-file: "2"}
+  php:
+    image: filehub-maintenance-php:20261118
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    restart: unless-stopped
+    env_file: [.env]
+    volumes:
+      - ./app:/var/www/html:ro
+      - ./fixtures:/var/www/fixtures:ro
+      - ./state/ops10:/var/www/ops10:rw
+      - ./php/filehub.ini:/usr/local/etc/php/conf.d/zz-filehub.ini:ro
+      - ./state/upload_tmp:/var/www/upload_tmp:rw
+      - filehub_jti:/var/www/jti:rw
+      - ./php/www.conf:/usr/local/etc/php-fpm.d/zz-filehub.conf:ro
+      - ./php/filehub-pool.inc:/usr/local/etc/php-fpm.d/filehub-pool.inc:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+      - /run:size=4m,mode=755
+      - /var/www/scratch:size=8m,mode=1777
+    mem_limit: 192m
+    cpus: "0.60"
+    security_opt: ["no-new-privileges=true"]
+    logging:
+      driver: json-file
+      options: {max-size: "2m", max-file: "2"}
+  # R2.2 thumbnailer: converts the original into a real <=260x160 thumbnail.
+  # The PHP-FPM image has no GD/Imagick.
+  # No published port: reachable only from this compose network.
+  thumbnailer:
+    build:
+      context: ./thumbnailer
+      dockerfile: Dockerfile
+    image: filehub-thumbd:latest
+    restart: unless-stopped
+    environment:
+      PHP_CLI_SERVER_WORKERS: "2"
+    volumes:
+      # The shared secret between the application and the worker. Read-only here;
+      # the application reads the same file through its own mount.
+      - ./state/ops10/thumbs:/var/www/thumbs:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    mem_limit: 160m
+    cpus: "0.40"
+    security_opt: ["no-new-privileges=true"]
+    logging:
+      driver: json-file
+      options: {max-size: "2m", max-file: "2"}
+
+volumes:
+  filehub_jti:
